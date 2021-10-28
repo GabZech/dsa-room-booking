@@ -11,9 +11,6 @@ class Room:
         self.__tv = tv
         self.__projector = projector
 
-
-#%%
-
 # create rooms
 room1=Room("2.31", 2, True, True, False)
 room2=Room("2.32", 3, True, False, False)
@@ -89,6 +86,5 @@ def askStudentEmail():
 
   return email
 
-# %%
 
 new_student = Student(askStudentName(), askStudentID(), askStudentEmail())
