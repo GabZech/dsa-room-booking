@@ -4,6 +4,7 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+spyder-kernels = "==2.1.3"
 
 [dev-packages]
 
