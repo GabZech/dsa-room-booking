@@ -10,9 +10,9 @@ def askStudentName():
     and all(x.isalpha() or x.isspace() for x in name)) == False: # require that the string contains at least one alpha, at least one space, and only alphas and spaces
       print("Error. Please provide your first and last name, separated by a space and in alphabetic letters only.")
     else:
-      break # we're happy with the value given and we're ready to exit the loop.
+      return name # we're happy with the value given and we're ready to exit the loop.
 
-  return name
+  
 
 
 def askStudentID():
@@ -29,9 +29,9 @@ def askStudentID():
       continue
 
     else: 
-      break
+        return id
 
-  return id
+
 
 
 def askStudentEmail():
@@ -44,6 +44,4 @@ def askStudentEmail():
     if email_regex.match(email) == None:
       print("Error. Please provide a valid email address.")
     else:
-      break
-
-  return email
+      return email
