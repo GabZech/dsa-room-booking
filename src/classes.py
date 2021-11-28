@@ -1,8 +1,23 @@
 class Student:
-     def __init__(self, name, id, email):
+    def __init__(self, name, id, email):
                        self.__name = name
                        self.__id = id
                        self.__email = email
+                       
+    # functions to get values
+    @property
+    def name(self):
+        return self.__name
+    
+    @property
+    def id(self):
+        return self.__id
+    
+    @property
+    def email(self):
+        return self.__email
+    
+    
 
 ## create getters for Student name, id and email
 

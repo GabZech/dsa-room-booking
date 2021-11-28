@@ -45,3 +45,37 @@ def askStudentEmail():
       print("Error. Please provide a valid email address.")
     else:
       return email
+  
+    
+  
+    
+def chooseRoom(df):
+    '''
+    Prompts user to choose from a list of available rooms.
+
+    Parameters
+    ----------
+    df : dataframe
+        DESCRIPTION.
+
+    Returns
+    -------
+    index : int64
+    chosen_room : str
+        DESCRIPTION.
+
+    '''
+    num_avl_rooms = df.shape[0] # number of rows = number of available rooms
+    room_names_list = df['name'].tolist()
+    room_names_string = "\n".join(map(str, room_names_list))
+    
+    print(f"There are {num_avl_rooms} available rooms:\n{room_names_string}")
+    
+    while True:
+        chosen_room = input("Which would you like to book? ")
+      
+        if chosen_room not in room_names_list: 
+            print("Error. Please provide a valid room number.")
+        else:
+            index = df.loc[df["name"] == chosen_room].index.values[0]
+            return index, chosen_room
