@@ -84,7 +84,7 @@ def chooseRoom(df):
 
 def resetBookings():
     df_rooms = pd.read_excel("../data/raw/rooms.xlsx")
-    df_rooms.to_excel("../data/processing/rooms.xlsx", index = False)
+    df_rooms.to_csv("../data/processing/rooms.csv", index = False)
     
     df_bookings = pd.read_excel("../data/raw/bookings.xlsx")
-    df_bookings.to_excel("../data/processing/bookings.xlsx", index = False)
+    df_bookings.to_csv("../data/processing/bookings.csv", index = False)
