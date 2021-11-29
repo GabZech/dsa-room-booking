@@ -1,6 +1,10 @@
 import re
 import pandas as pd
 
+
+##########################################################
+########## FUNCTIONS TO PROMPT USER INFORMATION ##########
+
 def askStudentName():
 
   while True:
@@ -12,9 +16,6 @@ def askStudentName():
       print("Error. Please provide your first and last name, separated by a space and in alphabetic letters only.")
     else:
       return name # we're happy with the value given and we're ready to exit the loop.
-
-  
-
 
 def askStudentID():
 
@@ -33,8 +34,6 @@ def askStudentID():
         return id
 
 
-
-
 def askStudentEmail():
   
   email_regex = re.compile(r"[^@]+@[^@]+\.[^@]+") # regex that validates if string is an email address
@@ -48,7 +47,20 @@ def askStudentEmail():
       return email
   
     
-  
+###################################################
+########## FUNCTIONS TO HANDLE DATABASES ##########
+
+def readRooms():
+    df = pd.read_csv("../data/processing/rooms.csv", dtype={"name": str}, parse_dates=["date_time"])
+    return df
+
+def readBookings():
+    df = pd.read_csv("../data/processing/bookings.csv", dtype={"room_name": str}, parse_dates=["room_datetime"])
+    return df
+
+
+#######################################################
+########## FUNCTIONS TO PROMPT USER DECISION ##########
     
 def chooseRoom(df):
     '''
@@ -80,7 +92,55 @@ def chooseRoom(df):
         else:
             index = df.loc[df["name"] == chosen_room].index.values[0]
             return index, chosen_room
+
+
+def cancelBooking(df):
+    
+    room_names_list = df['room_name'].tolist()
+    room_places_list = df['room_places'].tolist()
+    room_datetime_list = df['room_datetime'].tolist()
+    
+    print("\nThe following bookings were found:")
+    
+    for i, val in enumerate(room_names_list):
+        print(f"Booking number {i+1}: on {room_datetime_list[i].strftime('%A %x')} at {room_datetime_list[i].strftime('%I %p')} -> {room_places_list[i]} place(s) in room {room_names_list[i]}")
         
+    while True:
+        chosen_booking = int(input("Which booking number would you like to cancel? "))
+        chosen_booking = chosen_booking-1
+      
+        if chosen_booking not in [*range(0, len(room_names_list), 1)]:
+            print("Error. Please provide a valid booking number.")
+        else:
+            # read rooms file
+            df_rooms = readRooms()
+            
+            # get row corresponding to chosen booking
+            df_temp = df.iloc[[chosen_booking]]
+
+            # extract information from this row
+            booked_room_name = df_temp["room_name"].values[0]
+            booked_datetime = df_temp["room_datetime"].values[0]
+            booked_places = df_temp["room_places"].values[0]
+            
+            # replace availability in rooms.csv
+            booked_room_index = df_rooms[(df_rooms.name == booked_room_name) &
+                                         (df_rooms.date_time == booked_datetime)].index.values[0] # gets corresponding index value in rooms.csv
+            df_rooms.at[booked_room_index, "available_places"] = df_rooms.iloc[booked_room_index]["available_places"] + booked_places
+            df_rooms.to_csv("../data/processing/rooms.csv", index = False)
+            
+            # delete entry on bookings.xlsx
+            df_bookings = readBookings()
+            print("\nThe following booking has been deleted: ")
+            print(f"Booking number {chosen_booking+1}: on {room_datetime_list[chosen_booking].strftime('%A %x')} at {room_datetime_list[chosen_booking].strftime('%I %p')} -> {room_places_list[chosen_booking]} place(s) in room {room_names_list[chosen_booking]}")
+            df_bookings.drop(index=chosen_booking, inplace=True)
+            df_bookings.to_csv("../data/processing/bookings.csv", index=False)
+            
+            break
+
+
+#####################################
+########## OTHER FUNCTIONS ##########
 
 def resetBookings():
     df_rooms = pd.read_excel("../data/raw/rooms.xlsx")
@@ -88,3 +148,5 @@ def resetBookings():
     
     df_bookings = pd.read_excel("../data/raw/bookings.xlsx")
     df_bookings.to_csv("../data/processing/bookings.csv", index = False)
+    
+    print("bookings reset")
