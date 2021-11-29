@@ -1,4 +1,5 @@
 import re
+import pandas as pd
 
 def askStudentName():
 
@@ -79,3 +80,11 @@ def chooseRoom(df):
         else:
             index = df.loc[df["name"] == chosen_room].index.values[0]
             return index, chosen_room
+        
+
+def resetBookings():
+    df_rooms = pd.read_excel("../data/raw/rooms.xlsx")
+    df_rooms.to_excel("../data/processing/rooms.xlsx", index = False)
+    
+    df_bookings = pd.read_excel("../data/raw/bookings.xlsx")
+    df_bookings.to_excel("../data/processing/bookings.xlsx", index = False)

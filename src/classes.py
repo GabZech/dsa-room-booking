@@ -40,3 +40,34 @@ class Room:
     def capacity(self, c):
         self.__capacity = c
     
+    
+    
+class bookingInfo:
+    
+    def __init__(self, places, datetime, quiet, tv, projector):
+                       self.__places = places
+                       self.__datetime = datetime
+                       self.__quiet = quiet
+                       self.__tv = tv
+                       self.__projector = projector
+                       
+    # functions to get values
+    @property
+    def places(self):
+        return self.__places
+    
+    @property
+    def datetime(self):
+        return self.__datetime
+    
+    @property
+    def quiet(self):
+        return self.__quiet
+    
+    @property
+    def tv(self):
+        return self.__tv
+    
+    @property
+    def projector(self):
+        return self.__projector
