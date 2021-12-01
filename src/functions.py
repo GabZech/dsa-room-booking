@@ -46,7 +46,37 @@ def askStudentEmail():
     else:
       return email
   
+def askbookingInfoQuite():
+     quite= input("Do you need a quite room? True/False: \n")
+     while quite != "True" and quite != "False":
+         print("Please write either True or False")
+         quite= input("Do you need a quite room? True/False: \n")
+     return quite
     
+def askbookingInfoTV():
+    tv = input("Do you need a TV in your room? True/False: \n")
+    while tv != "True" and tv != "False":
+        print("Please write either True or False")
+        tv = input("Do you need a TV in your room? True/False: \n")
+    return tv
+ 
+def askbookingInfoProjector():
+    projector = input("Do you need a projector in your room? True/False: \n" )
+    while projector!= "True" and projector != "False":
+        print("Please write either True or False")
+        projector = input("Do you need a TV in your room? True/False: \n")
+    return projector
+
+def askbookingInfoPlaces():   
+    while True:
+     try:
+      places = int(input("Please enter the capacity of the room: \n"))
+     except ValueError: # executes if input is not an integer
+      print("Error. Please provide numbers only.")
+      continue
+     else: 
+        return places
+
 ###################################################
 ########## FUNCTIONS TO HANDLE DATABASES ##########
 
@@ -82,10 +112,13 @@ def chooseRoom(df):
     room_names_list = df['name'].tolist()
     room_names_string = "\n".join(map(str, room_names_list))
     
-    print(f"There are {num_avl_rooms} available rooms:\n{room_names_string}")
+    if num_avl_rooms == 0:
+        print("We are sorry, there are no rooms with such criterias, try again")
+    else:
+        print(f"There are {num_avl_rooms} available rooms:\n{room_names_string}")
     
     while True:
-        chosen_room = input("Which would you like to book? ")
+        chosen_room = input("Which room would you like to book? ")
       
         if chosen_room not in room_names_list: 
             print("Error. Please provide a valid room number.")
