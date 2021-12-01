@@ -28,7 +28,7 @@ while True:
     
     if choice == 1:
     
-        print("\n----- BOOK A ROOM -----")
+        print("\n\n----- BOOK A ROOM -----")
         
         # import dataframe of rooms
         df_rooms = fn.readRooms()
@@ -97,7 +97,7 @@ while True:
         break
     
     else:
-        print("\n\nPlease choose a valid number.")
+        print("\nPlease choose a valid number.")
         continue
 
 #%%
