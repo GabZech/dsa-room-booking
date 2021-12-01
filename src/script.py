@@ -9,7 +9,7 @@ TO-DOs
 - Create functions for user to input values for des_datetime, des_places, des_quiet, des_tv, des_projector
         - Note: des_datetime must be in datetime format e.g. "01.01.2022  10:00:00"
 
-- Create more day and hour entries for every room on the excel file (currently only for 01.01.2022 and 10am)
+- Create more day and hour entries for every room on the csv file (currently only for 01.01.2022 and 10am)
 
 '''
 
@@ -101,4 +101,4 @@ while True:
         continue
 
 #%%
-#fn.resetBookings()
+fn.resetBookings()
