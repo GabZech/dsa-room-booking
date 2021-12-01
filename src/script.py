@@ -6,10 +6,16 @@ import datetime
 '''
 TO-DOs
 
-- Create functions for user to input values for des_datetime, des_places, des_quiet, des_tv, des_projector
+- Create functions for user to input values for bookingInfo
         - Note: des_datetime must be in datetime format e.g. "01.01.2022  10:00:00"
 
 - Create more day and hour entries for every room on the csv file (currently only for 01.01.2022 and 10am)
+
+- Allow users to choose 1 or 2h for booking a room
+
+- Show how many spaces available per room
+
+- set a timer between booking and showing options
 
 '''
 
@@ -101,4 +107,5 @@ while True:
         continue
 
 #%%
-fn.resetBookings()
+#fn.resetBookings()
+df_rooms = fn.readRooms()
