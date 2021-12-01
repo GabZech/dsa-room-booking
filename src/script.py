@@ -15,7 +15,7 @@ TO-DOs
 
 
 # ask for student details
-print("WELCOME \nPlease enter the following details to proceed.")
+print("\n\n----- WELCOME ----- \nPlease enter the following details to proceed.")
 student = cl.Student(fn.askStudentName(), fn.askStudentID(), fn.askStudentEmail())
 # student = cl.Student("Gab", 123456, "x@x.com")
 #room_datetime = datetime.datetime.strptime("01.01.2022  10:00:00","%d.%m.%Y %H:%M:%S")
@@ -24,11 +24,11 @@ student = cl.Student(fn.askStudentName(), fn.askStudentID(), fn.askStudentEmail(
 # start programme
 while True:
 
-    choice = int(input("OPTIONS \n1: Book a room \n2: Cancel a booking \n3: Exit \n\nPlease type the number of your choice to proceed: "))
+    choice = int(input("\n\n----- OPTIONS ----- \n1: Book a room \n2: Cancel a booking \n3: Exit \n\nPlease type the number of your choice to proceed: "))
     
     if choice == 1:
     
-        print("\nBOOK A ROOM")
+        print("\n----- BOOK A ROOM -----")
         
         # import dataframe of rooms
         df_rooms = fn.readRooms()
@@ -75,13 +75,13 @@ while True:
             continue
             
         else: # this is a simple overbooking prevention
-            print("Someone has just made a booking for the same room at the given time and date. \nThe room is no available for the chosen number of places anymore. \nPlease try again and choose another room.")
+            print("\nSomeone has just made a booking for the same room at the given time and date. \nThe room is no available for the chosen number of places anymore. \nPlease try again and choose another room.")
             continue
         
 
     elif choice == 2:
         # CANCEL BOOKING
-        print("\nCANCEL BOOKING")
+        print("\n\n----- CANCEL BOOKING -----")
         df_bookings = fn.readBookings()
         
         # show booked rooms and prompt user to choose which to cancel
