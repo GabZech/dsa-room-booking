@@ -14,25 +14,25 @@ TO-DOs
 
 - Allow users to choose 1 or 2h for booking a room
 
-- Show how many spaces available per room
-
-- set a timer between booking and showing options
-
 '''
 
 
 # ask for student details
 print("\n\n----- WELCOME ----- \nPlease enter the following details to proceed.")
 student = cl.Student(fn.askStudentName(), fn.askStudentID(), fn.askStudentEmail())
-# student = cl.Student("Gab", 123456, "x@x.com")
+#student = cl.Student("Gab", 123456, "x@x.com")
 #room_datetime = datetime.datetime.strptime("01.01.2022  10:00:00","%d.%m.%Y %H:%M:%S")
 
 
 # start programme
 while True:
-
-    choice = int(input("\n\n----- OPTIONS ----- \n1: Book a room \n2: Cancel a booking \n3: Exit \n\nPlease type the number of your choice to proceed: "))
-    
+    try:
+        choice = int(input("\n\n----- OPTIONS ----- \n1: Book a room \n2: Cancel a booking \n3: Exit \n\nPlease type the number of your choice to proceed: "))
+    except ValueError: # executes if input is not an integer
+        print("Error. Please provide numbers only.")
+        time.sleep(2) 
+        continue
+  
     if choice == 1:
     
         print("\n\n----- BOOK A ROOM -----")
