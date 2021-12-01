@@ -2,6 +2,7 @@ import functions as fn
 import classes as cl
 import pandas as pd
 import datetime
+import time
 
 '''
 TO-DOs
@@ -78,6 +79,8 @@ while True:
             df_bookings.loc[len(df_bookings)] = row
             df_bookings.to_csv("../data/processing/bookings.csv", index=False)
             
+            time.sleep(3) 
+            
             continue
             
         else: # this is a simple overbooking prevention
@@ -97,9 +100,14 @@ while True:
         
         fn.cancelBooking(df_match)
         
+        time.sleep(3) 
+        
         continue
     
     elif choice == 3:
+        
+        print("\nExiting application. Goodbye!")
+        
         break
     
     else:
