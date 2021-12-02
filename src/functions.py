@@ -111,20 +111,27 @@ def chooseRoom(df):
     num_avl_rooms = df.shape[0] # number of rows = number of available rooms
     room_names_list = df['name'].tolist()
     room_names_string = "\n".join(map(str, room_names_list))
+    room_available_places = df['available_places'].tolist()
     
+
     if num_avl_rooms == 0:
         print("We are sorry, there are no rooms with such criterias, try again")
+        continue
     else:
-        print(f"There are {num_avl_rooms} available rooms:\n{room_names_string}")
-    
-    while True:
-        chosen_room = input("Which room would you like to book? ")
-      
-        if chosen_room not in room_names_list: 
-            print("Error. Please provide a valid room number.")
-        else:
-            index = df.loc[df["name"] == chosen_room].index.values[0]
-            return index, chosen_room
+        print(f"There are {num_avl_rooms} available rooms:")
+        i = 0 
+        while i < len(room_names_list):
+            print(f"Room {room_names_list[i]} has {room_available_places[i]} places available at the chosen time and date")
+            i += 1
+
+        while True:
+            chosen_room = input("Which room would you like to book? ")
+
+            if chosen_room not in room_names_list: 
+                print("Error. Please provide a valid room number.")
+            else:
+                index = df.loc[df["name"] == chosen_room].index.values[0]
+                return index, chosen_room
 
 
 def cancelBooking(df):

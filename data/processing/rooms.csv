@@ -12,4 +12,4 @@ name,capacity,quiet,tv,projector,date_time,available_places
 3.35,12,True,False,True,2022-01-01 10:00:00,12
 3.4,15,False,True,True,2022-01-01 10:00:00,15
 3.5,17,False,False,False,2022-01-01 10:00:00,17
-3.6,4,True,False,False,2022-01-01 10:00:00,4
+3.6,4,True,False,False,2022-01-01 10:00:00,3

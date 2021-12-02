@@ -2,6 +2,7 @@ import functions as fn
 import classes as cl
 import pandas as pd
 import datetime
+import time
 
 '''
 TO-DOs
@@ -14,21 +15,26 @@ TO-DOs
 - Show how many spaces available per room
 - set a timer between booking and showing options
 - what is our default, what if there is 0 rooms? stop the program, go back to "CHOICE"
+
 '''
 
 
 # ask for student details
 print("\n\n----- WELCOME ----- \nPlease enter the following details to proceed.")
 student = cl.Student(fn.askStudentName(), fn.askStudentID(), fn.askStudentEmail())
-# student = cl.Student("Gab", 123456, "x@x.com")
+#student = cl.Student("Gab", 123456, "x@x.com")
 #room_datetime = datetime.datetime.strptime("01.01.2022  10:00:00","%d.%m.%Y %H:%M:%S")
 
 
 # start programme
 while True:
-
-    choice = int(input("\n\n----- OPTIONS ----- \n1: Book a room \n2: Cancel a booking \n3: Exit \n\nPlease type the number of your choice to proceed: "))
-    
+    try:
+        choice = int(input("\n\n----- OPTIONS ----- \n1: Book a room \n2: Cancel a booking \n3: Exit \n\nPlease type the number of your choice to proceed: "))
+    except ValueError: # executes if input is not an integer
+        print("Error. Please provide numbers only.")
+        time.sleep(2) 
+        continue
+  
     if choice == 1:
     
         print("\n\n----- BOOK A ROOM -----")
@@ -72,6 +78,8 @@ while True:
             df_bookings.loc[len(df_bookings)] = row
             df_bookings.to_csv("../data/processing/bookings.csv", index=False)
             
+            time.sleep(3) 
+            
             continue
             
         else: # this is a simple overbooking prevention
@@ -91,9 +99,14 @@ while True:
         
         fn.cancelBooking(df_match)
         
+        time.sleep(3) 
+        
         continue
     
     elif choice == 3:
+        
+        print("\nExiting application. Goodbye!")
+        
         break
     
     else:
