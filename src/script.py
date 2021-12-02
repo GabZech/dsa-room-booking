@@ -11,8 +11,10 @@ TO-DOs
         - Note: des_datetime must be in datetime format e.g. "01.01.2022  10:00:00"
 
 - Create more day and hour entries for every room on the csv file (currently only for 01.01.2022 and 10am)
-
 - Allow users to choose 1 or 2h for booking a room
+- Show how many spaces available per room
+- set a timer between booking and showing options
+- what is our default, what if there is 0 rooms? stop the program, go back to "CHOICE"
 
 '''
 
@@ -45,13 +47,10 @@ while True:
         #                          ...
         #                          )
         
-        booking = cl.bookingInfo(places = 1,
-                                datetime = datetime.datetime(year=2022, month=1, day=1, hour=10),
-                                quiet = True,
-                                tv = False,
-                                projector = False
-                                )
+        booking = cl.bookingInfo(quiet=fn.askbookingInfoQuite(),tv=fn.askbookingInfoTV(), projector=fn.askbookingInfoProjector(), places=fn.askbookingInfoPlaces(), datetime = datetime.datetime(year=2022, month=1, day=1, hour=10))
         
+
+
         # find matching rooms
         df_match = df_rooms[(df_rooms.date_time == booking.datetime) &
                             (df_rooms.available_places >= booking.places) & # return rooms with same or higher number of availabe places
