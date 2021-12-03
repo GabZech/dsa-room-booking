@@ -88,6 +88,11 @@ def readBookings():
     df = pd.read_csv("../data/processing/bookings.csv", dtype={"room_name": str}, parse_dates=["room_datetime"])
     return df
 
+def readRoomsTest():
+    df = pd.read_csv("../data/processing/roomsTest.csv", dtype={"name": str}, parse_dates=["date_time"])
+    return df
+
+
 
 #######################################################
 ########## FUNCTIONS TO PROMPT USER DECISION ##########

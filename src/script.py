@@ -40,7 +40,8 @@ while True:
         print("\n\n----- BOOK A ROOM -----")
         
         # import dataframe of rooms
-        df_rooms = fn.readRooms()
+       # df_rooms = fn.readRooms()
+        df_rooms = fn.readRoomsTest()
         
         # ask for booking information
         booking = cl.bookingInfo(quiet=fn.askbookingInfoQuite(),
@@ -116,3 +117,5 @@ while True:
 #%%
 #fn.resetBookings()
 df_rooms = fn.readRooms()
+
+
