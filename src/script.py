@@ -20,8 +20,8 @@ TO-DOs
 
 # ask for student details
 print("\n\n----- WELCOME ----- \nPlease enter the following details to proceed.")
-#1student = cl.Student(fn.askStudentName(), fn.askStudentID(), fn.askStudentEmail())
-student = cl.Student("Gab", 123456, "x@x.com")
+student = cl.Student(fn.askStudentName(), fn.askStudentID(), fn.askStudentEmail())
+#student = cl.Student("Gab", 123456, "x@x.com")
 #room_datetime = datetime.datetime.strptime("01.01.2022  10:00:00","%d.%m.%Y %H:%M:%S")
 
 
