@@ -1,6 +1,5 @@
 import functions as fn
 import classes as cl
-import pandas as pd
 import datetime
 import time
 
@@ -21,8 +20,8 @@ TO-DOs
 
 # ask for student details
 print("\n\n----- WELCOME ----- \nPlease enter the following details to proceed.")
-student = cl.Student(fn.askStudentName(), fn.askStudentID(), fn.askStudentEmail())
-#student = cl.Student("Gab", 123456, "x@x.com")
+#1student = cl.Student(fn.askStudentName(), fn.askStudentID(), fn.askStudentEmail())
+student = cl.Student("Gab", 123456, "x@x.com")
 #room_datetime = datetime.datetime.strptime("01.01.2022  10:00:00","%d.%m.%Y %H:%M:%S")
 
 
@@ -43,7 +42,7 @@ while True:
         df_rooms = fn.readRooms()
         
         # ask for booking information
-        booking = cl.bookingInfo(quiet=fn.askbookingInfoQuite(),
+        booking = cl.bookingInfo(quiet=fn.askbookingInfoQuiet(),
                                  tv=fn.askbookingInfoTV(), 
                                  projector=fn.askbookingInfoProjector(), 
                                  places=fn.askbookingInfoPlaces(), 
