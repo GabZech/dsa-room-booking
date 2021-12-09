@@ -1,5 +1,6 @@
 import re
 import pandas as pd
+from datetime import datetime
 
 
 ##########################################################
@@ -93,13 +94,19 @@ def askbookingInfoQuiet():
     Returns:
         quiet: A boolean value indicating whether the user needs a quiet room or not.
     """
-    while True:
-        quiet= input("Do you need a quiet room? yes/no: \n")
-        if quiet != "yes" and quiet != "no":
-             print("Please write either yes or no")
-        else:
-             return quiet
 
+    while True:
+        
+        quiet = input("Do you need a quiet room? yes/no: \n")
+        if quiet == "yes":
+            quiet = True
+        elif quiet == "no":
+            quiet = False
+        else:
+            print("Please write either True or False")
+            continue
+        
+        return quiet
 
 def askbookingInfoTV():
 
@@ -113,15 +120,19 @@ def askbookingInfoTV():
     Returns:
     tv: Boolean, True if a TV is needed, False if not.
     """    
-
+ 
     while True:
-         tv= input("Do you need a tv? yes/no: \n")
-         if tv != "yes" and tv != "no":
-             print("Please write either yes or no")
-         else:
-             return tv
- 
- 
+        
+        tv = input("Do you need a tv? yes/no: \n")
+        if tv == "yes":
+            tv = True
+        elif tv == "no":
+            tv = False
+        else:
+            print("Please write either yes or no")
+            continue
+        
+        return tv
 
 def askbookingInfoProjector():
     """
@@ -136,12 +147,20 @@ def askbookingInfoProjector():
     -------
 
     """
+
+
     while True:
-         projector= input("Do you need a projector? yes/no: \n")
-         if projector != "yes" and projector != "no":
-             print("Please write either yes or no")
-         else:
-             return projector
+        
+        projector = input("Do you need a projectore? yes/no: \n")
+        if projector == "yes":
+            projector = True
+        elif projector == "no":
+            projector = False
+        else:
+            print("Please write either yes or no")
+            continue
+        
+        return projector
 
 
 def askbookingInfoPlaces():
@@ -166,10 +185,11 @@ def askbookingInfoPlaces():
       continue
      else: 
         return places
+    
+# datetime = datetime.datetime(year=2022, month=1, day=1, hour=10, minutes=00, seconds=00))
 
-# datetime = datetime.datetime(year=2022, month=1, day=1, hour=10))
-from datetime import datetime
-def askbookingTime():
+
+def askbookingInfoTime():
     date_entry = input('Enter a date in YYYY-MM-DD-hh:mm:ss format')
     #year, month, day,hour = map(int, date_entry.split('-'))
     date_entry=datetime.strptime(date_entry,'%Y-%m-%d %H:%M:%S')

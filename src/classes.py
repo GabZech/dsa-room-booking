@@ -71,6 +71,7 @@ class bookingInfo:
                        self.__quiet = quiet
                        self.__tv = tv
                        self.__projector = projector
+
                        
     # functions to get values
     @property
@@ -92,3 +93,4 @@ class bookingInfo:
     @property
     def projector(self):
         return self.__projector
+    
