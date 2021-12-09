@@ -1,6 +1,5 @@
 import functions as fn
 import classes as cl
-import pandas as pd
 import datetime
 import time
 
@@ -14,7 +13,6 @@ TO-DOs
 - Allow users to choose 1 or 2h for booking a room
 - Show how many spaces available per room
 - set a timer between booking and showing options
-- what is our default, what if there is 0 rooms? stop the program, go back to "CHOICE"
 
 '''
 
@@ -42,12 +40,12 @@ while True:
         # import dataframe of rooms
         df_rooms = fn.readRooms()
         
-        # given user input, create object with all matching available rooms
-        # booking = cl.bookingInfo(places = fn.askPlaces(), 
-        #                          ...
-        #                          )
-        
-        booking = cl.bookingInfo(quiet=fn.askbookingInfoQuite(),tv=fn.askbookingInfoTV(), projector=fn.askbookingInfoProjector(), places=fn.askbookingInfoPlaces(), datetime = datetime.datetime(year=2022, month=1, day=1, hour=10))
+        # ask for booking information
+        booking = cl.bookingInfo(quiet=fn.askbookingInfoQuiet(),
+                                 tv=fn.askbookingInfoTV(), 
+                                 projector=fn.askbookingInfoProjector(), 
+                                 places=fn.askbookingInfoPlaces(), 
+                                 datetime = fn.askbookingTime())
         
 
 
@@ -61,7 +59,10 @@ while True:
         
         # choose room
         chosen_room_index, chosen_room_name = fn.chooseRoom(df_match)
-
+        
+        if len(df_match)==0:
+            print("We are sorry, there are no rooms with such criterias, please try again later")
+            break
         #decrease room availability in original
         df_rooms = fn.readRooms() # re-read dataframe to avoid another user having already booked a place in same room during this time (thus preventing overbooking)
         

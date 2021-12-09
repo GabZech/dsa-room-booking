@@ -1,4 +1,14 @@
 class Student:
+
+    """
+    name (str): The name of the Student
+    id (int): The ID of the student
+    email (str): The email of the student
+    
+    Returns:
+        Student: A student object
+    """
+
     def __init__(self, name, id, email):
                        self.__name = name
                        self.__id = id
@@ -43,6 +53,17 @@ class Room:
     
     
 class bookingInfo:
+
+    '''
+    The class bookingInfo is used to store information about a booking.
+    
+    Attributes:
+        places (int): The number of places booked.
+        datetime (datetime.datetime): The date and time of the booking.
+        quiet (bool): Whether the booking is for quiet room.
+        tv (bool): Whether the booking has TV.
+        projector (bool): Whether the booking has projector.
+    '''
     
     def __init__(self, places, datetime, quiet, tv, projector):
                        self.__places = places

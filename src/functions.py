@@ -7,67 +7,157 @@ import pandas as pd
 
 def askStudentName():
 
-  while True:
-    name = input("Please enter your full name: ")
+    """
+    This function will ask the user to provide their first and last name, separated by a space and in alphabetic letters only.
+    It will then return the name given.
+
+    Parameters:
+    -------
+    name: str
+
+    Returns:
+    -------
+    name: str
+
+    """
+
+    while True:
+        name = input("Please enter your full name: ")
     
-    if (any(x.isalpha() for x in name)
-    and any(x.isspace() for x in name)
-    and all(x.isalpha() or x.isspace() for x in name)) == False: # require that the string contains at least one alpha, at least one space, and only alphas and spaces
-      print("Error. Please provide your first and last name, separated by a space and in alphabetic letters only.")
-    else:
-      return name # we're happy with the value given and we're ready to exit the loop.
+        if (any(x.isalpha() for x in name)
+            and any(x.isspace() for x in name)
+            and all(x.isalpha() or x.isspace() for x in name)) == False: # require that the string contains at least one alpha, at least one space, and only alphas and spaces
+            print("Error. Please provide your first and last name, separated by a space and in alphabetic letters only.")
+        else:
+            return name # we're happy with the value given and we're ready to exit the loop.
 
 def askStudentID():
 
-  while True:
-    try:
-      id = int(input("Please enter your student ID: "))
-    except ValueError: # executes if input is not an integer
-      print("Error. Please provide numbers only.")
-      continue
+    """
+    This function is designed to take input of a student ID number, and then check if 
+    it is of length six. If the input is not of length six, it will print an error 
+    message. If the input is not a number, it will print an error message.
 
-    if len(str(id)) != 6: # executes if input is not of length 6
-      print("Error. The ID provided does not have 6 digits.")
-      continue
+    Parameters:
+        None
 
-    else: 
-        return id
+    Returns:
+        id: An integer representing the student's ID.
+
+    Note:
+        The function will keep looping until a 6 digit number is provided as input.
+    """
+
+    while True:
+        try:
+            id = int(input("Please enter your student ID: "))
+        except ValueError: # executes if input is not an integer
+            print("Error. Please provide numbers only.")
+            continue
+
+        if len(str(id)) != 6: # executes if input is not of length 6
+            print("Error. The ID provided does not have 6 digits.")
+            continue
+
+        else: 
+            return id
 
 
 def askStudentEmail():
-  
-  email_regex = re.compile(r"[^@]+@[^@]+\.[^@]+") # regex that validates if string is an email address
+    """
+    askStudentEmail()
 
-  while True:
-    email = input("Please enter your email: ")
+    Asks the user for their email address.
 
-    if email_regex.match(email) == None:
-      print("Error. Please provide a valid email address.")
-    else:
-      return email
-  
-def askbookingInfoQuite():
-     quite= input("Do you need a quite room? True/False: \n")
-     while quite != "True" and quite != "False":
-         print("Please write either True or False")
-         quite= input("Do you need a quite room? True/False: \n")
-     return quite
+    Returns:
+    output (str): The student's email address.
+    """
     
-def askbookingInfoTV():
-    tv = input("Do you need a TV in your room? True/False: \n")
-    while tv != "True" and tv != "False":
-        print("Please write either True or False")
-        tv = input("Do you need a TV in your room? True/False: \n")
-    return tv
- 
-def askbookingInfoProjector():
-    projector = input("Do you need a projector in your room? True/False: \n" )
-    while projector!= "True" and projector != "False":
-        print("Please write either True or False")
-        projector = input("Do you need a TV in your room? True/False: \n")
-    return projector
+    email_regex = re.compile(r"[^@]+@[^@]+\.[^@]+") # regex that validates if string is an email address
+    while True:
+        email = input("Please enter your email: ")
 
-def askbookingInfoPlaces():   
+        if email_regex.match(email) == None:
+            print("Error. Please provide a valid email address.")
+        else:
+            return email
+  
+
+def askbookingInfoQuiet():
+    """
+    Function to ask the user whether they need a quiet room.
+
+    Parameters:
+        None
+
+    Returns:
+        quiet: A boolean value indicating whether the user needs a quiet room or not.
+    """
+    while True:
+        quiet= input("Do you need a quiet room? yes/no: \n")
+        if quiet != "yes" and quiet != "no":
+             print("Please write either yes or no")
+        else:
+             return quiet
+
+
+def askbookingInfoTV():
+
+
+    """
+    Function which asks the user if a TV is needed.
+
+    Parameters:
+    None
+    
+    Returns:
+    tv: Boolean, True if a TV is needed, False if not.
+    """    
+
+    while True:
+         tv= input("Do you need a tv? yes/no: \n")
+         if tv != "yes" and tv != "no":
+             print("Please write either yes or no")
+         else:
+             return tv
+ 
+ 
+
+def askbookingInfoProjector():
+    """
+    Asks the user if they need a projector in their room.
+    Returns a string, either "True" or "False".
+    If the user does not write either "True" or "False", the function will keep asking.
+
+    Parameters
+    ----------
+
+    Returns
+    -------
+
+    """
+    while True:
+         projector= input("Do you need a projector? yes/no: \n")
+         if projector != "yes" and projector != "no":
+             print("Please write either yes or no")
+         else:
+             return projector
+
+
+def askbookingInfoPlaces():
+    """
+    Asks the user for the number of places in the room.
+
+    Parameters
+    ----------
+    df : pandas.DataFrame
+
+    Returns
+    -------
+    places : int64
+
+    """  
+
     while True:
      try:
       places = int(input("Please enter the capacity of the room: \n"))
@@ -77,16 +167,47 @@ def askbookingInfoPlaces():
      else: 
         return places
 
+# datetime = datetime.datetime(year=2022, month=1, day=1, hour=10))
+from datetime import datetime
+def askbookingTime():
+    date_entry = input('Enter a date in YYYY-MM-DD-hh:mm:ss format')
+    #year, month, day,hour = map(int, date_entry.split('-'))
+    date_entry=datetime.strptime(date_entry,'%Y-%m-%d %H:%M:%S')
+    return date_entry
+    
 ###################################################
 ########## FUNCTIONS TO HANDLE DATABASES ##########
 
 def readRooms():
+
+    """
+    Reads the rooms.csv file into a pandas dataframe.
+
+    Parameters:
+        None
+
+    Returns:
+        A pandas dataframe containing the rooms.csv file.
+    """
+
     df = pd.read_csv("../data/processing/rooms.csv", dtype={"name": str}, parse_dates=["date_time"])
     return df
 
+
 def readBookings():
+    """
+    Reads the bookings.csv file and returns a pandas dataframe.
+
+    Parameters:
+        None
+
+    Returns:
+        pandas dataframe
+    """
     df = pd.read_csv("../data/processing/bookings.csv", dtype={"room_name": str}, parse_dates=["room_datetime"])
     return df
+
+
 
 
 #######################################################
@@ -94,29 +215,33 @@ def readBookings():
     
 def chooseRoom(df):
     '''
-    Prompts user to choose from a list of available rooms.
+
+    This function takes a dataframe as input and returns the index of the chosen room and the name of the room.
+    The function also prints the available rooms and their number of available places.
+    The function asks the user to choose a room.
+    If the user provides a room that is not in the list of available rooms, the function prints an error message and asks the user to provide a valid room.
+    If there are no available rooms, the function prints an error message and asks the user to try again.
+    The function returns the index of the chosen room and the name of the room.
 
     Parameters
     ----------
-    df : dataframe
-        DESCRIPTION.
+    df : pandas.DataFrame
 
     Returns
     -------
     index : int64
     chosen_room : str
-        DESCRIPTION.
 
     '''
+
     num_avl_rooms = df.shape[0] # number of rows = number of available rooms
     room_names_list = df['name'].tolist()
-    room_names_string = "\n".join(map(str, room_names_list))
     room_available_places = df['available_places'].tolist()
     
 
     if num_avl_rooms == 0:
-        print("We are sorry, there are no rooms with such criterias, try again")
-        continue
+        print("We are sorry, there are no rooms with such criterias, try again")        
+
     else:
         print(f"There are {num_avl_rooms} available rooms:")
         i = 0 
@@ -135,6 +260,20 @@ def chooseRoom(df):
 
 
 def cancelBooking(df):
+
+    """
+    Cancels a booking.
+
+    Parameters
+    ----------
+    df : pandas.DataFrame
+        DataFrame containing the bookings.
+
+    Returns
+    -------
+    None
+
+    """
     
     room_names_list = df['room_name'].tolist()
     room_places_list = df['room_places'].tolist()
@@ -183,6 +322,19 @@ def cancelBooking(df):
 ########## OTHER FUNCTIONS ##########
 
 def resetBookings():
+    """
+    Resets the bookings.csv and rooms.csv files to their original state.
+
+    Parameters
+    ----------
+    None
+
+    Returns
+    -------
+    None
+
+    """
+
     df_rooms = pd.read_excel("../data/raw/rooms.xlsx")
     df_rooms.to_csv("../data/processing/rooms.csv", index = False)
     
