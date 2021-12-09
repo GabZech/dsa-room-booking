@@ -60,7 +60,10 @@ while True:
         
         # choose room
         chosen_room_index, chosen_room_name = fn.chooseRoom(df_match)
-
+        
+        if len(df_match)==0:
+            print("We are sorry, there are no rooms with such criterias, please try again later")
+            break
         #decrease room availability in original
         df_rooms = fn.readRooms() # re-read dataframe to avoid another user having already booked a place in same room during this time (thus preventing overbooking)
         

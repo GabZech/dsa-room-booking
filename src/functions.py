@@ -82,6 +82,7 @@ def askStudentEmail():
         else:
             return email
   
+<<<<<<< Updated upstream
 def askbookingInfoQuiet():
     """
     Function to ask the user whether they need a quiet room.
@@ -104,9 +105,20 @@ def askbookingInfoQuiet():
             continue
         
         return quiet
+=======
+def askbookingInfoQuite():
+  
+     while True:
+         quiet= input("Do you need a quiet room? yes/no: \n")
+         if quiet != "yes" and quiet != "no":
+             print("Please write either yes or no")
+         else:
+             return quiet
+>>>>>>> Stashed changes
     
 
 def askbookingInfoTV():
+<<<<<<< Updated upstream
 
     """
     Function which asks the user if a TV is needed.
@@ -143,6 +155,22 @@ def askbookingInfoProjector():
         print("Please write either True or False")
         projector = input("Do you need a TV in your room? True/False: \n")
     return projector
+=======
+     while True:
+         tv= input("Do you need a tv? yes/no: \n")
+         if tv != "yes" and tv != "no":
+             print("Please write either yes or no")
+         else:
+             return tv
+ 
+def askbookingInfoProjector():
+     while True:
+         projector= input("Do you need a projector? yes/no: \n")
+         if projector != "yes" and projector != "no":
+             print("Please write either yes or no")
+         else:
+             return projector
+>>>>>>> Stashed changes
 
 def askbookingInfoPlaces():
     """
@@ -233,6 +261,10 @@ def chooseRoom(df):
 
     if num_avl_rooms == 0:
         print("We are sorry, there are no rooms with such criterias, try again")
+<<<<<<< Updated upstream
+=======
+       
+>>>>>>> Stashed changes
     else:
         print(f"There are {num_avl_rooms} available rooms:")
         i = 0 
