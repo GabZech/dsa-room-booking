@@ -167,6 +167,14 @@ def askbookingInfoPlaces():
      else: 
         return places
 
+# datetime = datetime.datetime(year=2022, month=1, day=1, hour=10))
+from datetime import datetime
+def askbookingTime():
+    date_entry = input('Enter a date in YYYY-MM-DD-hh:mm:ss format')
+    #year, month, day,hour = map(int, date_entry.split('-'))
+    date_entry=datetime.strptime(date_entry,'%Y-%m-%d %H:%M:%S')
+    return date_entry
+    
 ###################################################
 ########## FUNCTIONS TO HANDLE DATABASES ##########
 

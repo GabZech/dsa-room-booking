@@ -45,7 +45,7 @@ while True:
                                  tv=fn.askbookingInfoTV(), 
                                  projector=fn.askbookingInfoProjector(), 
                                  places=fn.askbookingInfoPlaces(), 
-                                 datetime = datetime.datetime(year=2022, month=1, day=1, hour=10))
+                                 datetime = fn.askbookingTime())
         
 
 
