@@ -82,7 +82,7 @@ def askStudentEmail():
         else:
             return email
   
-<<<<<<< Updated upstream
+
 def askbookingInfoQuiet():
     """
     Function to ask the user whether they need a quiet room.
@@ -94,31 +94,15 @@ def askbookingInfoQuiet():
         quiet: A boolean value indicating whether the user needs a quiet room or not.
     """
     while True:
-        
-        quiet = input("Do you need a quiet room? True/False: \n")
-        if quiet == "True":
-            quiet = True
-        elif quiet == "False":
-            quiet = False
-        else:
-            print("Please write either True or False")
-            continue
-        
-        return quiet
-=======
-def askbookingInfoQuite():
-  
-     while True:
-         quiet= input("Do you need a quiet room? yes/no: \n")
-         if quiet != "yes" and quiet != "no":
+        quiet= input("Do you need a quiet room? yes/no: \n")
+        if quiet != "yes" and quiet != "no":
              print("Please write either yes or no")
-         else:
+        else:
              return quiet
->>>>>>> Stashed changes
-    
+
 
 def askbookingInfoTV():
-<<<<<<< Updated upstream
+
 
     """
     Function which asks the user if a TV is needed.
@@ -128,14 +112,17 @@ def askbookingInfoTV():
     
     Returns:
     tv: Boolean, True if a TV is needed, False if not.
-    """
+    """    
 
-    tv = input("Do you need a TV in your room? True/False: \n")
-    while tv != "True" and tv != "False":
-        print("Please write either True or False")
-        tv = input("Do you need a TV in your room? True/False: \n")
-    return tv
+    while True:
+         tv= input("Do you need a tv? yes/no: \n")
+         if tv != "yes" and tv != "no":
+             print("Please write either yes or no")
+         else:
+             return tv
  
+ 
+
 def askbookingInfoProjector():
     """
     Asks the user if they need a projector in their room.
@@ -149,28 +136,13 @@ def askbookingInfoProjector():
     -------
 
     """
-
-    projector = input("Do you need a projector in your room? True/False: \n" )
-    while projector!= "True" and projector != "False":
-        print("Please write either True or False")
-        projector = input("Do you need a TV in your room? True/False: \n")
-    return projector
-=======
-     while True:
-         tv= input("Do you need a tv? yes/no: \n")
-         if tv != "yes" and tv != "no":
-             print("Please write either yes or no")
-         else:
-             return tv
- 
-def askbookingInfoProjector():
-     while True:
+    while True:
          projector= input("Do you need a projector? yes/no: \n")
          if projector != "yes" and projector != "no":
              print("Please write either yes or no")
          else:
              return projector
->>>>>>> Stashed changes
+
 
 def askbookingInfoPlaces():
     """
@@ -260,11 +232,8 @@ def chooseRoom(df):
     
 
     if num_avl_rooms == 0:
-        print("We are sorry, there are no rooms with such criterias, try again")
-<<<<<<< Updated upstream
-=======
-       
->>>>>>> Stashed changes
+        print("We are sorry, there are no rooms with such criterias, try again")        
+
     else:
         print(f"There are {num_avl_rooms} available rooms:")
         i = 0 

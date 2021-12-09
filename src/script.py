@@ -13,7 +13,6 @@ TO-DOs
 - Allow users to choose 1 or 2h for booking a room
 - Show how many spaces available per room
 - set a timer between booking and showing options
-- what is our default, what if there is 0 rooms? stop the program, go back to "CHOICE"
 
 '''
 
