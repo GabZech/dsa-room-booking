@@ -2,13 +2,15 @@
 
 As the final project for the Fall 2021 Data Structures & Algorithms course at the Hertie School, we developed a room booking system that optimizes the assignment of spaces based on individual users' preferences and allows members of the community to receive an instant booking confirmation.
 
-##Background
+## Background
 Under the current system, real-life booking is not possible as each request needs to be manually confirmed by a member of staff. Additionally, students cannot see the capacity of the rooms, nor see all the available, free rooms. Everyone can book a random capacity which leads to inefficient use of space, e.g., there are rooms for 10, booked by 2 students. 
 
-##Features
-As a first step, our program prompts user input to gather relevant information about their preferences and match them with an available room.
+## Features
+Our program creates a class "Student" that prompts user input for information such as name, email address, and student ID. Secondly, the class "Booking Info" creates a  profile based on user input with relevant information about the student's preferences used to match them with an available room, e.g. A/V facilities, quiet study spaces, how many spaces are needed etc. 
 
-Libraries used:
+We created a .csv file with rooms and unique properties to simulate rooms at Hertie. Since currently there is only a small number of bookable rooms, we generated some mock rooms.
+
+Our program reads the .csv file into a pandas dataframe, checks for a match between user preferences and room properties, and 
 
 
 Authors: [Hannah Schweren](https://github.com/hannahmagda), [Anna Weronika Matysiak](https://github.com/AnnaWeronikaMatysiak), [Max B. Eckert](https://github.com/m-b-e) and [Gabriel da Silva Zech](https://github.com/GabZech).
