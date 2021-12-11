@@ -190,9 +190,9 @@ def askbookingInfoPlaces():
 
 
 def askbookingInfoTime():
-    date_entry = input('Enter a date in YYYY-MM-DD-hh:mm:ss format')
+    date_entry = input('Enter a date in %m/%d/%Y, %H:%M format')
     #year, month, day,hour = map(int, date_entry.split('-'))
-    date_entry=datetime.strptime(date_entry,'%Y-%m-%d %H:%M:%S')
+    date_entry=datetime.strptime(date_entry,'%m/%d/%Y, %H:%M')
     return date_entry
     
 ###################################################
