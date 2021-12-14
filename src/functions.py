@@ -1,5 +1,6 @@
 import re
 import pandas as pd
+from datetime import datetime
 
 
 ##########################################################
@@ -93,13 +94,19 @@ def askbookingInfoQuiet():
     Returns:
         quiet: A boolean value indicating whether the user needs a quiet room or not.
     """
-    while True:
-        quiet= input("Do you need a quiet room? yes/no: \n")
-        if quiet != "yes" and quiet != "no":
-             print("Please write either yes or no")
-        else:
-             return quiet
 
+    while True:
+        
+        quiet = input("Do you need a quiet room? yes/no: \n")
+        if quiet.lower() == "yes" or quiet.lower() == "y":
+            quiet = True
+        elif quiet.lower() == "no" or quiet.lower() == "n":
+            quiet = False
+        else:
+            print("Please write either True or False")
+            continue
+        
+        return quiet
 
 def askbookingInfoTV():
 
@@ -113,15 +120,19 @@ def askbookingInfoTV():
     Returns:
     tv: Boolean, True if a TV is needed, False if not.
     """    
-
+ 
     while True:
-         tv= input("Do you need a tv? yes/no: \n")
-         if tv != "yes" and tv != "no":
-             print("Please write either yes or no")
-         else:
-             return tv
- 
- 
+        
+        tv = input("Do you need a tv? yes/no: \n")
+        if tv.lower() == "yes" or tv.lower()=="y":
+            tv = True
+        elif tv.lower() == "no" or tv.lower()=="n":
+            tv = False
+        else:
+            print("Please write either yes or no")
+            continue
+        
+        return tv
 
 def askbookingInfoProjector():
     """
@@ -136,12 +147,20 @@ def askbookingInfoProjector():
     -------
 
     """
+
+
     while True:
-         projector= input("Do you need a projector? yes/no: \n")
-         if projector != "yes" and projector != "no":
-             print("Please write either yes or no")
-         else:
-             return projector
+        
+        projector = input("Do you need a projector? yes/no: \n")
+        if projector.lower() == "yes" or projector.lower()=="y":
+            projector = True
+        elif projector.lower() == "no" or projector.lower()=="n":
+            projector = False
+        else:
+            print("Please write either yes or no")
+            continue
+        
+        return projector
 
 
 def askbookingInfoPlaces():
@@ -166,14 +185,23 @@ def askbookingInfoPlaces():
       continue
      else: 
         return places
+    
+# datetime = datetime.datetime(year=2022, month=1, day=1, hour=10, minutes=00, seconds=00))
 
-# datetime = datetime.datetime(year=2022, month=1, day=1, hour=10))
-from datetime import datetime
-def askbookingTime():
-    date_entry = input('Enter a date in YYYY-MM-DD-hh:mm:ss format')
-    #year, month, day,hour = map(int, date_entry.split('-'))
-    date_entry=datetime.strptime(date_entry,'%Y-%m-%d %H:%M:%S')
-    return date_entry
+
+def askbookingInfoTime():
+    
+   while True:
+    try:
+     date_entry = input("Enter a date in %m/%d/%Y, %H:%M format: \n")
+     date_entry=datetime.strptime(date_entry,'%m/%d/%Y, %H:%M')
+    except ValueError:
+     print("Incorrect format, please input \"month/day/year, hour:00 minutes\" e.g.: 12/01/2022, 10:00")
+     continue
+    else:
+     return date_entry
+
+
     
 ###################################################
 ########## FUNCTIONS TO HANDLE DATABASES ##########
@@ -233,14 +261,16 @@ def chooseRoom(df):
     chosen_room : str
 
     '''
+    
 
     num_avl_rooms = df.shape[0] # number of rows = number of available rooms
     room_names_list = df['name'].tolist()
     room_available_places = df['available_places'].tolist()
     
-
     if num_avl_rooms == 0:
-        print("We are sorry, there are no rooms with such criterias, try again")        
+        print("We are sorry, there are no rooms with such criterias, try again")
+        
+        
 
     else:
         print(f"There are {num_avl_rooms} available rooms:")

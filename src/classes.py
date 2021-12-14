@@ -1,13 +1,16 @@
 class Student:
 
-    """
-    name (str): The name of the Student
-    id (int): The ID of the student
-    email (str): The email of the student
+    '''
+    The class Student is used to store information about student's booking preferences.
+    
+    Arributes:
+        name (str): The name of the Student
+        id (int): The ID of the student
+        email (str): The email of the student
     
     Returns:
         Student: A student object
-    """
+    '''
 
     def __init__(self, name, id, email):
                        self.__name = name
@@ -63,6 +66,9 @@ class bookingInfo:
         quiet (bool): Whether the booking is for quiet room.
         tv (bool): Whether the booking has TV.
         projector (bool): Whether the booking has projector.
+        
+     Returns:
+         Student: A student object
     '''
     
     def __init__(self, places, datetime, quiet, tv, projector):
@@ -71,6 +77,7 @@ class bookingInfo:
                        self.__quiet = quiet
                        self.__tv = tv
                        self.__projector = projector
+
                        
     # functions to get values
     @property
@@ -92,3 +99,4 @@ class bookingInfo:
     @property
     def projector(self):
         return self.__projector
+    
