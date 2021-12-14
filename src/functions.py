@@ -186,22 +186,27 @@ def askbookingInfoPlaces():
      else: 
         return places
     
-# datetime = datetime.datetime(year=2022, month=1, day=1, hour=10, minutes=00, seconds=00))
 
 
-def askbookingInfoTime():
-    
+
+def askbookingInfoTime():  
    while True:
     try:
      date_entry = input("Enter a date in %m/%d/%Y, %H:%M format: \n")
      date_entry=datetime.strptime(date_entry,'%m/%d/%Y, %H:%M')
+     date_first = '01/01/2022, 00:00'
+     date_first = datetime.strptime(date_first, '%m/%d/%Y, %H:%M')
+     date_last = '12/31/2022, 23:00'
+     date_last = datetime.strptime(date_last, '%m/%d/%Y, %H:%M')
     except ValueError:
      print("Incorrect format, please input \"month/day/year, hour:00 minutes\" e.g.: 12/01/2022, 10:00")
      continue
+    if date_entry<date_first or date_entry>date_last:
+        print("You can only pick dates from 01/01/2022, 00:00 till 12/31/2022, 23:00")
+        continue
     else:
      return date_entry
-
-
+ 
     
 ###################################################
 ########## FUNCTIONS TO HANDLE DATABASES ##########
