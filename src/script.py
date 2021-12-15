@@ -12,10 +12,6 @@ TO-DOs
     #if places> df_rooms["capacity"].max():
     #print:("Hertie is super small, be realistic, pick smaller number")
     
-c) time: We do not need minutes in df_rooms;
-    as we only can book for an hour and only starting from full hours, 
-    shall we maybe let them only pick the hour without minutes?
-    
 
 d) I belive we should get rid of chose room function and cancel booking function. 
    They are overlaping to some extent with script and also, maybe it would be more efficient

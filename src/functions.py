@@ -192,17 +192,17 @@ def askbookingInfoPlaces():
 def askbookingInfoTime():  
    while True:
     try:
-     date_entry = input("Enter a date in %m/%d/%Y, %H:%M format: \n")
-     date_entry=datetime.strptime(date_entry,'%m/%d/%Y, %H:%M')
-     date_first = '01/01/2022, 00:00'
-     date_first = datetime.strptime(date_first, '%m/%d/%Y, %H:%M')
-     date_last = '12/31/2022, 23:00'
-     date_last = datetime.strptime(date_last, '%m/%d/%Y, %H:%M')
+     date_entry = input("Enter a date in mm/dd/YY, HH format: \n")
+     date_entry=datetime.strptime(date_entry,'%m/%d/%Y, %H')
+     date_first = '01/01/2022, 00'
+     date_first = datetime.strptime(date_first, '%m/%d/%Y, %H')
+     date_last = '12/31/2022, 23'
+     date_last = datetime.strptime(date_last, '%m/%d/%Y, %H')
     except ValueError:
-     print("Incorrect format, please input \"month/day/year, hour:00 minutes\" e.g.: 12/01/2022, 10:00")
+     print("Incorrect format, please input \"month/day/year, hour \" e.g.: 12/01/2022, 10")
      continue
     if date_entry<date_first or date_entry>date_last:
-        print("You can only pick dates from 01/01/2022, 00:00 till 12/31/2022, 23:00")
+        print("You can only pick dates from 01/01/2022, 00 till 12/31/2022, 23")
         continue
     else:
      return date_entry

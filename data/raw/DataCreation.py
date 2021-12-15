@@ -38,7 +38,7 @@ result = result[["name", "capacity", "quiet", "tv", "projector", "date_time", "a
 
 
 #%% change format of datetime column
-result['date_time'] = result['date_time'].dt.strftime('%m/%d/%Y, %H:%M')
+result['date_time'] = result['date_time'].dt.strftime('%m/%d/%Y, %H')
 
 #%% save output to rooms file
 result.to_csv('rooms.csv', index=False)
