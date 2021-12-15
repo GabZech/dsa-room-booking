@@ -45,7 +45,7 @@ while True:
     try:
         choice = int(input("\n\n----- OPTIONS ----- \n1: Book a room \n2: Cancel a booking \n3: Exit \n\nPlease type the number of your choice to proceed: "))
     except ValueError: # executes if input is not an integer
-        print("Error. Please provide numbers only.")
+        print("Error. Please provide numbers only (from 1 to 3).")
         time.sleep(2) 
         continue
   
@@ -72,13 +72,14 @@ while True:
                             (df_rooms.tv == booking.tv) &
                             (df_rooms.projector == booking.projector)
                             ]
+        if len(df_match)==0:
+            print("We are sorry, there are no rooms with such criterias, please try again later")
+            break   
         
         # choose room
         chosen_room_index, chosen_room_name = fnd.chooseRoom(df_match)
         
-        if len(df_match)==0:
-            print("We are sorry, there are no rooms with such criterias, please try again later")
-            break
+
         #decrease room availability in original
         df_rooms = fnd.readRooms() # re-read dataframe to avoid another user having already booked a place in same room during this time (thus preventing overbooking)
         

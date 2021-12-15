@@ -103,7 +103,7 @@ def askbookingInfoQuiet():
         elif quiet.lower() == "no" or quiet.lower() == "n":
             quiet = False
         else:
-            print("Please write either True or False")
+            print("Please write either yes or no")
             continue
         
         return quiet
