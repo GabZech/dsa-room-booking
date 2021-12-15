@@ -193,7 +193,7 @@ def askbookingInfoPlaces():
 def askbookingInfoTime():  
    while True:
     try:
-     date_entry = input("Enter a date in mm/dd/YY, HH format: \n")
+     date_entry = input("Enter a date in mm/dd/YYYY, HH format: \n")
      date_entry=datetime.strptime(date_entry,'%m/%d/%Y, %H')
      date_first = '01/01/2022, 00'
      date_first = datetime.strptime(date_first, '%m/%d/%Y, %H')
@@ -274,7 +274,7 @@ def chooseRoom(df):
     room_available_places = df['available_places'].tolist()
     
     if num_avl_rooms == 0:
-        print("We are sorry, there are no rooms with such criterias, try again")
+        print("We are sorry, there are no rooms with such criteria, try again")
         
         
 

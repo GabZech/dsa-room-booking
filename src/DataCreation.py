@@ -1,11 +1,3 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Sat Dec 11 12:58:07 2021
-
-@author: hannahschweren
-"""
-
 #%% import packages
 import pandas as pd
 
