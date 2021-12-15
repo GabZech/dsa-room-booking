@@ -7,14 +7,17 @@ import time
 
 '''
 TO-DOs
-1) URGENT:
+1) Possible improvements, we can add later to readMe and try in the mean time 
+to correct them/change:
 
- b) capacity: add condition, but in the script unless we set a max value as constant
+a) capacity: 
+    - add condition, but in the script unless we set a max value as constant
     #if places> df_rooms["capacity"].max():
     #print:("Hertie is super small, be realistic, pick smaller number")
+    - we could also add conditions to each combination (T,T,T; T,F,T;...) of users input about room 
+    criteria (quiet/tv.projector). 
     
-
-d) I belive we should get rid of chose room function and cancel booking function. 
+b) I belive we should get rid of chose room function and cancel booking function. 
    They are overlaping to some extent with script and also, maybe it would be more efficient
    to have them in one place in script. Issues that are problematic here:
        - when you cancel a room and you are later asked what you want to do, and clik again 
@@ -22,9 +25,16 @@ d) I belive we should get rid of chose room function and cancel booking function
        it
        -when there is only one room, program still asks "which room you want to select"
        
-5) booking a room - it would be good to compare exisitng names and id in df_bookings while inputing names and ID. 
+c) booking a room - it would be good to compare exisitng names and id in df_bookings while inputing names and ID. 
    Gabriel set his studnet number as 123456 so did I. While cancelling I also cancelled 
-   his whithout knowing.
+   his whithout knowing. We can also add a new data base.
+   
+d) write down the formats of input in the correction notes email - inform what is the format
+e) add most possible combiantions of email endings .org/.uk/.de; we should also 
+   account for double spacing 
+f) no bookings in the past in 2022, we must add a today function
+d) tell people the reasosn why the booking failed
+
        
 2) ADDITIONAL and USEFUL:
 - Allow users to choose 1 or 2h for booking a room
