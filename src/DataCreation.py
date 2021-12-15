@@ -8,10 +8,6 @@ Created on Sat Dec 11 12:58:07 2021
 
 #%% import packages
 import pandas as pd
-import datetime as dt
-import numpy as np
-import datetime as dt
-
 
 #%% create data for dataset
 data  = {'name': [2.31, 2.32, 2.35, 2.4, 2.6, 2.71, 3.01, 3.1, 3.22, 3.33, 3.35, 3.4, 3.5, 3.6], 'capacity': [2, 3, 8, 2, 4, 4, 35, 7, 3, 5, 12, 15, 17, 4],'quiet': ['True', 'True', 'False', 'True', 'True', 'False', 'False', 'False', 'True', 'True', 'True', 'False', 'False', 'True'], 'tv': ['True', 'False', 'False', 'True', 'False', 'False', 'True', 'True', 'False', 'False', 'False', 'True', 'False', 'False'], 'projector': ['False', 'False', 'False', 'False', 'True', 'False', 'False', 'False', 'False', 'False', 'True', 'True', 'False', 'False'], 'available_places': [2, 3, 8, 2, 4, 4, 35, 7, 3, 5, 12, 15, 17, 4]}
@@ -41,5 +37,5 @@ result = result[["name", "capacity", "quiet", "tv", "projector", "date_time", "a
 result['date_time'] = result['date_time'].dt.strftime('%m/%d/%Y, %H')
 
 #%% save output to rooms file
-result.to_csv('rooms.csv', index=False)
-
+result.to_csv('../data/raw/rooms.csv', index=False)
+result.to_csv('../data/processing/rooms.csv', index=False)
