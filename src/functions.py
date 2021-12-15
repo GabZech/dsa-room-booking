@@ -27,7 +27,8 @@ def askStudentName():
     
         if (any(x.isalpha() for x in name)
             and any(x.isspace() for x in name)
-            and all(x.isalpha() or x.isspace() for x in name)) == False: # require that the string contains at least one alpha, at least one space, and only alphas and spaces
+            and all(x.isalpha() or x.isspace() for x in name)
+            and len(name) >= 5) == False: # require that the string contains at least one alpha, at least one space, only alphas and spaces, and at least 5 characters
             print("Error. Please provide your first and last name, separated by a space and in alphabetic letters only.")
         else:
             return name.upper()# we're happy with the value given and we're ready to exit the loop.
