@@ -1,4 +1,6 @@
-import functions as fn
+import functionsUser as fnu
+import functionsDecision as fnd
+import functionsReset as fnr
 import classes as cl
 import datetime
 import time
@@ -33,7 +35,7 @@ d) I belive we should get rid of chose room function and cancel booking function
 
 # ask for student details
 print("\n\n----- WELCOME ----- \nPlease enter the following details to proceed.")
-student = cl.Student(fn.askStudentName(), fn.askStudentID(), fn.askStudentEmail())
+student = cl.Student(fnu.askStudentName(), fnu.askStudentID(), fnu.askStudentEmail())
 #student = cl.Student("Gab", 123456, "x@x.com")
 #room_datetime = datetime.datetime.strptime("01.01.2022  10:00:00","%d.%m.%Y %H:%M:%S")
 
@@ -52,14 +54,14 @@ while True:
         print("\n\n----- BOOK A ROOM -----")
         
         # import dataframe of rooms
-        df_rooms = fn.readRooms()
+        df_rooms = fnd.readRooms()
         
         # ask for booking information
-        booking = cl.bookingInfo(quiet=fn.askbookingInfoQuiet(),
-                                 tv=fn.askbookingInfoTV(), 
-                                 projector=fn.askbookingInfoProjector(), 
-                                 places=fn.askbookingInfoPlaces(), 
-                                 datetime = fn.askbookingInfoTime())
+        booking = cl.bookingInfo(quiet=fnu.askbookingInfoQuiet(),
+                                 tv=fnu.askbookingInfoTV(), 
+                                 projector=fnu.askbookingInfoProjector(), 
+                                 places=fnu.askbookingInfoPlaces(), 
+                                 datetime = fnu.askbookingInfoTime())
         
 
 
@@ -72,13 +74,13 @@ while True:
                             ]
         
         # choose room
-        chosen_room_index, chosen_room_name = fn.chooseRoom(df_match)
+        chosen_room_index, chosen_room_name = fnd.chooseRoom(df_match)
         
         if len(df_match)==0:
             print("We are sorry, there are no rooms with such criterias, please try again later")
             break
         #decrease room availability in original
-        df_rooms = fn.readRooms() # re-read dataframe to avoid another user having already booked a place in same room during this time (thus preventing overbooking)
+        df_rooms = fnd.readRooms() # re-read dataframe to avoid another user having already booked a place in same room during this time (thus preventing overbooking)
         
         if df_rooms.iloc[chosen_room_index]["available_places"] >= booking.places: # if still available places
             
@@ -89,7 +91,7 @@ while True:
             
             # save booking info to bookings.xslx
             row = [student.name, student.id, student.email, chosen_room_name, booking.places, booking.datetime]
-            df_bookings = fn.readBookings()
+            df_bookings = fnd.readBookings()
             df_bookings.loc[len(df_bookings)] = row
             df_bookings.to_csv("../data/processing/bookings.csv", index=False)
             
@@ -105,14 +107,14 @@ while True:
     elif choice == 2:
         # CANCEL BOOKING
         print("\n\n----- CANCEL BOOKING -----")
-        df_bookings = fn.readBookings()
+        df_bookings = fnd.readBookings()
         
         # show booked rooms and prompt user to choose which to cancel
         df_match = df_bookings[(df_bookings["student_name"] == student.name) &
                                (df_bookings["student_id"] == student.id) &
                                (df_bookings["room_datetime"] >= datetime.datetime.now())] # show only future bookings
         
-        fn.cancelBooking(df_match)
+        fnd.cancelBooking(df_match)
         
         time.sleep(3) 
         
@@ -130,4 +132,4 @@ while True:
 
 #%%
 #fn.resetBookings()
-df_rooms = fn.readRooms()
+df_rooms = fnd.readRooms()
