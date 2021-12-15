@@ -23,14 +23,14 @@ def askStudentName():
     """
 
     while True:
-        name = input("Please enter your full name: ")
+        name = input("Please enter your full name: \n")
     
         if (any(x.isalpha() for x in name)
             and any(x.isspace() for x in name)
             and all(x.isalpha() or x.isspace() for x in name)) == False: # require that the string contains at least one alpha, at least one space, and only alphas and spaces
             print("Error. Please provide your first and last name, separated by a space and in alphabetic letters only.")
         else:
-            return name # we're happy with the value given and we're ready to exit the loop.
+            return name.upper()# we're happy with the value given and we're ready to exit the loop.
 
 def askStudentID():
 
@@ -186,22 +186,27 @@ def askbookingInfoPlaces():
      else: 
         return places
     
-# datetime = datetime.datetime(year=2022, month=1, day=1, hour=10, minutes=00, seconds=00))
 
 
-def askbookingInfoTime():
-    
+
+def askbookingInfoTime():  
    while True:
     try:
      date_entry = input("Enter a date in %m/%d/%Y, %H:%M format: \n")
      date_entry=datetime.strptime(date_entry,'%m/%d/%Y, %H:%M')
+     date_first = '01/01/2022, 00:00'
+     date_first = datetime.strptime(date_first, '%m/%d/%Y, %H:%M')
+     date_last = '12/31/2022, 23:00'
+     date_last = datetime.strptime(date_last, '%m/%d/%Y, %H:%M')
     except ValueError:
      print("Incorrect format, please input \"month/day/year, hour:00 minutes\" e.g.: 12/01/2022, 10:00")
      continue
+    if date_entry<date_first or date_entry>date_last:
+        print("You can only pick dates from 01/01/2022, 00:00 till 12/31/2022, 23:00")
+        continue
     else:
      return date_entry
-
-
+ 
     
 ###################################################
 ########## FUNCTIONS TO HANDLE DATABASES ##########

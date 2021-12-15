@@ -5,15 +5,34 @@ import time
 
 '''
 TO-DOs
+1) URGENT:
 
-- Create functions for user to input values for bookingInfo
-        - Note: des_datetime must be in datetime format e.g. "01.01.2022  10:00:00"
+ a) name: more than one letter
+ b) capacity: add condition, but in the script unless we set a max value as constant
+    #if places> df_rooms["capacity"].max():
+    #print:("Hertie is super small, be realistic, pick smaller number")
+    
+c) time: We do not need minutes in df_rooms;
+    as we only can book for an hour and only starting from full hours, 
+    shall we maybe let them only pick the hour without minutes?
+    
 
-- Create more day and hour entries for every room on the csv file (currently only for 01.01.2022 and 10am)
+d) I belive we should get rid of chose room function and cancel booking function. 
+   They are overlaping to some extent with script and also, maybe it would be more efficient
+   to have them in one place in script. Issues that are problematic here:
+       - when you cancel a room and you are later asked what you want to do, and clik again 
+       cancel, the room that you selected will still be there, at least the first time you select
+       it
+       -when there is only one room, program still asks "which room you want to select"
+       
+5) booking a room - it would be good to compare exisitng names and id in df_bookings while inputing names and ID. 
+   Gabriel set his studnet number as 123456 so did I. While cancelling I also cancelled 
+   his whithout knowing.
+       
+2) ADDITIONAL and USEFUL:
 - Allow users to choose 1 or 2h for booking a room
 - Show how many spaces available per room
 - set a timer between booking and showing options
-
 '''
 
 
