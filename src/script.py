@@ -7,7 +7,6 @@ import time
 TO-DOs
 1) URGENT:
 
- a) name: more than one letter
  b) capacity: add condition, but in the script unless we set a max value as constant
     #if places> df_rooms["capacity"].max():
     #print:("Hertie is super small, be realistic, pick smaller number")
