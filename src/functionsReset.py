@@ -5,16 +5,19 @@ import pandas as pd
 ########## OTHER Reset ##########
 
 def resetBookings():
+    
     """
-    Resets the bookings.csv and rooms.csv files to their original state.
+    This function resets the bookings.csv and rooms.csv files to their original state.
 
     Parameters
     ----------
-    None
+    df_rooms : excel file
+    df_bookings : excel file
 
     Returns
     -------
-    None
+    df_rooms : excel file
+    df_bookings : excel file
 
     """
 

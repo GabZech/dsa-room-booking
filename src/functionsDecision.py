@@ -7,13 +7,14 @@ import pandas as pd
 def readRooms():
 
     """
-    Reads the rooms.csv file into a pandas dataframe.
+    This function reads the rooms.csv file into a pandas dataframe.
 
     Parameters:
-        None
+    .csv file
 
     Returns:
-        A pandas dataframe containing the rooms.csv file.
+    A pandas dataframe containing the rooms.csv file.
+    
     """
 
     df = pd.read_csv("../data/processing/rooms.csv", dtype={"name": str}, parse_dates=["date_time"])
@@ -21,15 +22,18 @@ def readRooms():
 
 
 def readBookings():
+    
     """
-    Reads the bookings.csv file and returns a pandas dataframe.
+    This function reads the bookings.csv file and returns a pandas dataframe.
 
     Parameters:
-        None
+    .csv file
 
     Returns:
-        pandas dataframe
+    Pandas dataframe containing the bookings.csv file.
+    
     """
+    
     df = pd.read_csv("../data/processing/bookings.csv", dtype={"room_name": str}, parse_dates=["room_datetime"])
     return df
 
@@ -37,6 +41,7 @@ def readBookings():
 ########## FUNCTIONS TO PROMPT USER DECISION ##########
 
 def chooseRoom(df):
+    
     '''
 
     This function takes a dataframe as input and returns the index of the chosen room and the name of the room.
@@ -48,11 +53,11 @@ def chooseRoom(df):
 
     Parameters
     ----------
-    df : pandas.DataFrame
+    chosen_room : int
 
     Returns
     -------
-    index : int64
+    index : int
     chosen_room : str
 
     '''
@@ -82,16 +87,18 @@ def chooseRoom(df):
 def cancelBooking(df):
 
     """
-    Cancels a booking.
+    This functions cancels a booking.
 
     Parameters
     ----------
+    chosen_booking: int
+    
     df : pandas.DataFrame
         DataFrame containing the bookings.
 
     Returns
     -------
-    None
+    chosen_booking = int
 
     """
     

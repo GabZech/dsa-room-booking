@@ -8,7 +8,7 @@ from datetime import datetime
 def askStudentName():
 
     """
-    This function will ask the user to provide their first and last name, separated by a space and in alphabetic letters only.
+    This function asks the user to provide their first and last name, separated by a space and in alphabetic letters only.
     It will then return the name given.
 
     Parameters:
@@ -35,18 +35,21 @@ def askStudentName():
 def askStudentID():
 
     """
-    This function is designed to take input of a student ID number, and then check if 
-    it is of length six. If the input is not of length six, it will print an error 
-    message. If the input is not a number, it will print an error message.
+    This function asks for the student ID number, and then checks if it is of length six. 
+    If the input is not of length six, it will print an error message. 
+    If the input is not a number, it will print an error message.
 
     Parameters:
-        None
+    -------
+    id: int
 
     Returns:
-        id: An integer representing the student's ID.
+    -------
+    id: int
 
     Note:
-        The function will keep looping until a 6 digit number is provided as input.
+    The function will keep looping until a 6 digit number is provided as input.
+    
     """
 
     while True:
@@ -65,13 +68,22 @@ def askStudentID():
 
 
 def askStudentEmail():
-    """
-    askStudentEmail()
-
-    Asks the user for their email address.
+    
+    """   
+    This function asks the user for their email address and validates input using a regex.
+    If the input does not match the specified format, 
+    
+    Parameters:
+    -------
+    email: str
 
     Returns:
-    output (str): The student's email address.
+    -------
+    email: str
+    
+    Note:
+    The function will keep looping until the input matches the regex.
+    
     """
     
     email_regex = re.compile(r"[^@]+@[^@]+\.[^@]+") # regex that validates if string is an email address
@@ -85,14 +97,21 @@ def askStudentEmail():
   
 
 def askbookingInfoQuiet():
+    
     """
-    Function to ask the user whether they need a quiet room.
+    The function asks the user whether they need a quiet room.
 
     Parameters:
-        None
+    -------
+    quiet: str
 
     Returns:
-        quiet: A boolean value indicating whether the user needs a quiet room or not.
+    -------
+    quiet: 
+        
+    Note:
+    The function will keep looping until the user inputs "yes"/"y" or "no"/"n".
+    
     """
 
     while True:
@@ -110,16 +129,21 @@ def askbookingInfoQuiet():
 
 def askbookingInfoTV():
 
-
     """
-    Function which asks the user if a TV is needed.
+    This function asks the user if a TV is needed.
 
     Parameters:
-    None
-    
+    -------
+    tv: str
+
     Returns:
-    tv: Boolean, True if a TV is needed, False if not.
-    """    
+    -------
+    tv: bool
+    
+    Note:
+    The function will keep looping until the user inputs "yes"/"y" or "no"/"n".
+    
+    """   
  
     while True:
         
@@ -135,16 +159,22 @@ def askbookingInfoTV():
         return tv
 
 def askbookingInfoProjector():
+    
     """
-    Asks the user if they need a projector in their room.
+    This functions asks the user if they need a projector in their room.
     Returns a string, either "True" or "False".
     If the user does not write either "True" or "False", the function will keep asking.
 
     Parameters
     ----------
+    projector: str
 
     Returns
     -------
+    projector: bool
+    
+    Note:
+        The function will keep looping until the user inputs "yes"/"y" or "no"/"n".
 
     """
 
@@ -164,18 +194,22 @@ def askbookingInfoProjector():
 
 
 def askbookingInfoPlaces():
+    
     """
-    Asks the user for the number of places in the room.
+    This function asks the user for the number of places required in the room.
 
     Parameters
     ----------
-    df : pandas.DataFrame
+   places : int
 
     Returns
     -------
-    places : int64
+    places : int
+    
+    Note:
+        You can only pick dates from 01/01/2022, 00 till 12/31/2022, 23"
 
-    """  
+    """   
 
     while True:
      try:
@@ -189,21 +223,35 @@ def askbookingInfoPlaces():
 
 
 
-def askbookingInfoTime():  
-   while True:
-    try:
-     date_entry = input("Enter a date in mm/dd/YYYY, HH format: \n")
-     date_entry=datetime.strptime(date_entry,'%m/%d/%Y, %H')
-     date_first = '01/01/2022, 00'
-     date_first = datetime.strptime(date_first, '%m/%d/%Y, %H')
-     date_last = '12/31/2022, 23'
-     date_last = datetime.strptime(date_last, '%m/%d/%Y, %H')
-    except ValueError:
-     print("Incorrect format, please input \"month/day/year, hour \" e.g.: 12/01/2022, 10")
-     continue
-    if date_entry<date_first or date_entry>date_last:
-        print("You can only pick dates from 01/01/2022, 00 till 12/31/2022, 23")
-        continue
-    else:
-     return date_entry
+def askbookingInfoTime():
+    
+    """
+    This function asks the user for the prefered time of booking, following the format: mm/dd/YY, HH
+
+    Parameters
+    ----------
+    date_entry : int
+
+    Returns
+    -------
+    date_entry : date str
+
+    """ 
+    
+    while True:
+       try:
+           date_entry = input("Enter a date in mm/dd/YYYY, HH format: \n")
+           date_entry=datetime.strptime(date_entry,'%m/%d/%Y, %H')
+           date_first = '01/01/2022, 00'
+           date_first = datetime.strptime(date_first, '%m/%d/%Y, %H')
+           date_last = '12/31/2022, 23'
+           date_last = datetime.strptime(date_last, '%m/%d/%Y, %H')
+       except ValueError:
+           print("Incorrect format, please input \"month/day/year, hour \" e.g.: 12/01/2022, 10")
+           continue 
+       if date_entry<date_first or date_entry>date_last:
+             print("You can only pick dates from 01/01/2022, 00 till 12/31/2022, 23")
+             continue
+       else:
+           return date_entry
 
