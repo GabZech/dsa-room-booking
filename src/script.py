@@ -4,37 +4,6 @@ import classes as cl
 import datetime
 import time
 
-'''
-TO-DOs
-1) Possible improvements, we can add later to readMe and try in the mean time 
-to correct them/change:
-
-a) capacity: 
-    - add condition, but in the script unless we set a max value as constant
-    #if places> df_rooms["capacity"].max():
-    #print:("Hertie is super small, be realistic, pick smaller number")
-    - we could also add conditions to each combination (T,T,T; T,F,T;...) of users input about room 
-    criteria (quiet/tv.projector). 
-
-b) booking a room - it would be good to compare exisitng names and id in df_bookings while inputing names and ID. 
-   Gabriel set his studnet number as 123456 so did I. While cancelling I also cancelled 
-   his whithout knowing. We can also add a new data base.
-
-e) add most possible combiantions of email endings .org/.uk/.de; we should also 
-   account for double spacing 
-f) no bookings in the past in 2022, we must add a today function
-d) tell people the reasosn why the booking failed
-e) cancel booking when there is no room
-f) when there is only one room, another question or automatic booking - 
-    "Do you want this room" 
-
-       
-2) ADDITIONAL and USEFUL:
-- Allow users to choose 1 or 2h for booking a room
-- Show how many spaces available per room
-- set a timer between booking and showing options
-'''
-
 
 # ask for student details
 print("\n\n----- WELCOME ----- \nPlease enter the following details to proceed.")
