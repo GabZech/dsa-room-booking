@@ -20,6 +20,18 @@ Our program uses different classes for objects, one being "Student" that prompts
 ### How to Run
 The file script.py in the src folder contains the script necessary to run the application, while functions, and classes are saved in and imported from separate files.
 
+### Possible future imporvements and extensions
+Our program is a basic sample of room booking system and addressed the main problems with functionality of current system listed in our proposal. 
+At the same time, in order to fully addapt it to Herite needs, a few further imrovements could be imprlemented in the future.
+- add database with all Hertie ID's so only them can be inputed,
+- add possible combiantions of email endings .org/.uk/.de, based on the current students' emial list or allow only to use matriculation number,
+- map combinations (T,T,T; T,F,T;...) of users input about room 
+    criteria (quiet/tv.projector) and based on this ajust the capacity or tell people why their booking failed,
+- allow users to choose 1 or 2hours for booking a room
+- allow for group bookings and show how many spaces available per room for bigger gatherings
+- set a timer between booking and showing options
+'''
+
 ### Licensing
 This program is free to use under the [MIT License](https://mit-license.org/).
 
