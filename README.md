@@ -27,10 +27,10 @@ At the same time, in order to fully addapt it to Herite needs, a few further imr
 - add possible combiantions of email endings .org/.uk/.de, based on the current students' emial list or allow only to use matriculation number,
 - map combinations (T,T,T; T,F,T;...) of users input about room 
     criteria (quiet/tv.projector) and based on this ajust the capacity or tell people why their booking failed,
-- allow users to choose 1 or 2hours for booking a room
+- allow users to choose 1 or 2 hours for booking a room
 - allow for group bookings and show how many spaces available per room for bigger gatherings
 - set a timer between booking and showing options
-'''
+
 
 ### Licensing
 This program is free to use under the [MIT License](https://mit-license.org/).
