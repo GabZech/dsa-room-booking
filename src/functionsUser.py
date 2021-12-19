@@ -1,5 +1,4 @@
 import re
-import pandas as pd
 from datetime import datetime
 
 ##########################################################
@@ -91,7 +90,7 @@ def askStudentEmail():
         email = input("Please enter your email: ")
 
         if email_regex.match(email) == None:
-            print("Error. Please provide a valid email address.")
+            print("Error. Please provide a valid email address. Remember about the @ sign and domain name")
         else:
             return email
   
@@ -163,7 +162,7 @@ def askbookingInfoProjector():
     """
     This functions asks the user if they need a projector in their room.
     Returns a string, either "True" or "False".
-    If the user does not write either "True" or "False", the function will keep asking.
+    If the user does not write either "Yes" or "No", the function will keep asking.
 
     Parameters
     ----------
