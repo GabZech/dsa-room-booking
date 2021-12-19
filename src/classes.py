@@ -4,18 +4,37 @@ class Student:
     The class Student is used to store information about student's booking preferences.
     
     Arributes:
-        name (str): The name of the Student
-        id (int): The ID of the student
-        email (str): The email of the student
+    ----------
+        name: str
+            the name of the Student
+        id: int 
+            the ID of the student
+        email:str
+            The email of the student
     
-    Returns:
-        Student: A student object
+    Methods:
+    ----------
+    None
+    
     '''
 
     def __init__(self, name, id, email):
-                       self.__name = name
-                       self.__id = id
-                       self.__email = email
+        
+        '''
+        Parameters:
+        ----------
+        name: str
+            the name of the Student
+        id: int 
+            the ID of the student
+        email:str
+            The email of the student
+        
+        '''
+        
+        self.__name = name
+        self.__id = id
+        self.__email = email
                        
     # functions to get values
     @property
@@ -23,11 +42,11 @@ class Student:
         return self.__name
     
     @property
-    def id(self):
+    def id(self):  
         return self.__id
     
     @property
-    def email(self):
+    def email(self):       
         return self.__email
     
     
@@ -35,8 +54,43 @@ class Student:
 ## create getters for Student name, id and email
 
 class Room:
+    
+    '''
+    The class Student is used to store information about student's booking preferences.
+    
+    Arributes:
+    ----------
+    capacity: str
+        the capacity of a room
+    quiet: int 
+        whether or not room is a quiet study space
+    tv:str
+        whether or not room has a TV
+    projector: str
+        whether or not room has a projector
+    
+    Methods:
+    ----------
+    none
+    
+    '''
 
     def __init__(self, capacity, quiet, tv, projector):
+        
+        '''
+        Parameters:
+        ----------
+       capacity: str
+           the capacity of a room
+       quiet: int 
+           whether or not room is a quiet study space
+       tv:str
+           whether or not room has a TV
+       projector: str
+           whether or not room has a projector
+    
+        '''
+        
         self.__capacity = capacity
         self.__quiet = quiet 
         self.__tv = tv
@@ -61,22 +115,48 @@ class bookingInfo:
     The class bookingInfo is used to store information about a booking.
     
     Attributes:
-        places (int): The number of places booked.
-        datetime (datetime.datetime): The date and time of the booking.
-        quiet (bool): Whether the booking is for quiet room.
-        tv (bool): Whether the booking has TV.
-        projector (bool): Whether the booking has projector.
+    ---------- 
+    places: int
+        the number of places booked.
+    datetime: datetime.datetime
+        the date and time of the booking.
+    quiet: bool
+        whether the booking is for a quiet room.
+    tv: bool
+        whether the booking needs a TV.
+    projector:bool
+        whether the booking needs a projector.
         
-     Returns:
-         Student: A student object
+    Methods
+    -------
+    None
+    
     '''
     
     def __init__(self, places, datetime, quiet, tv, projector):
-                       self.__places = places
-                       self.__datetime = datetime
-                       self.__quiet = quiet
-                       self.__tv = tv
-                       self.__projector = projector
+        
+        '''
+        The class bookingInfo is used to store information about a booking.
+        
+        Attributes:
+        ---------- 
+        places: int
+            the number of places booked.
+        datetime: datetime
+            the date and time of the booking in date in mm/dd/YY, hh format.
+        quiet: bool
+            whether the booking is for a quiet room.
+        tv: bool
+            whether the booking needs a TV.
+        projector:bool
+            whether the booking needs a projector.
+        
+        '''
+        self.__places = places
+        self.__datetime = datetime
+        self.__quiet = quiet
+        self.__tv = tv
+        self.__projector = projector
 
                        
     # functions to get values

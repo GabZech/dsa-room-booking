@@ -1,0 +1,126 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module functionsUser</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>functionsUser</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:c%3A%5Cusers%5Cuser%5Cdesktop%5Chertie%5Cdsa%5Cdsa-room-booking%5Csrc%5Cfunctionsuser.py">c:\users\user\desktop\hertie\dsa\dsa-room-booking\src\functionsuser.py</a></font></td></tr></table>
+    <p></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="pandas.html">pandas</a><br>
+</td><td width="25%" valign=top><a href="re.html">re</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-askStudentEmail"><strong>askStudentEmail</strong></a>()</dt><dd><tt>This&nbsp;function&nbsp;asks&nbsp;the&nbsp;user&nbsp;for&nbsp;their&nbsp;email&nbsp;address&nbsp;and&nbsp;validates&nbsp;input&nbsp;using&nbsp;a&nbsp;regex.<br>
+If&nbsp;the&nbsp;input&nbsp;does&nbsp;not&nbsp;match&nbsp;the&nbsp;specified&nbsp;format,&nbsp;<br>
+&nbsp;<br>
+Parameters:<br>
+-------<br>
+email:&nbsp;str<br>
+&nbsp;<br>
+Returns:<br>
+-------<br>
+email:&nbsp;str<br>
+&nbsp;<br>
+Note:<br>
+The&nbsp;function&nbsp;will&nbsp;keep&nbsp;looping&nbsp;until&nbsp;the&nbsp;input&nbsp;matches&nbsp;the&nbsp;regex.</tt></dd></dl>
+ <dl><dt><a name="-askStudentID"><strong>askStudentID</strong></a>()</dt><dd><tt>This&nbsp;function&nbsp;asks&nbsp;for&nbsp;the&nbsp;student&nbsp;ID&nbsp;number,&nbsp;and&nbsp;then&nbsp;checks&nbsp;if&nbsp;it&nbsp;is&nbsp;of&nbsp;length&nbsp;six.&nbsp;<br>
+If&nbsp;the&nbsp;input&nbsp;is&nbsp;not&nbsp;of&nbsp;length&nbsp;six,&nbsp;it&nbsp;will&nbsp;print&nbsp;an&nbsp;error&nbsp;message.&nbsp;<br>
+If&nbsp;the&nbsp;input&nbsp;is&nbsp;not&nbsp;a&nbsp;number,&nbsp;it&nbsp;will&nbsp;print&nbsp;an&nbsp;error&nbsp;message.<br>
+&nbsp;<br>
+Parameters:<br>
+-------<br>
+id:&nbsp;int<br>
+&nbsp;<br>
+Returns:<br>
+-------<br>
+id:&nbsp;int<br>
+&nbsp;<br>
+Note:<br>
+The&nbsp;function&nbsp;will&nbsp;keep&nbsp;looping&nbsp;until&nbsp;a&nbsp;6&nbsp;digit&nbsp;number&nbsp;is&nbsp;provided&nbsp;as&nbsp;input.</tt></dd></dl>
+ <dl><dt><a name="-askStudentName"><strong>askStudentName</strong></a>()</dt><dd><tt>This&nbsp;function&nbsp;asks&nbsp;the&nbsp;user&nbsp;to&nbsp;provide&nbsp;their&nbsp;first&nbsp;and&nbsp;last&nbsp;name,&nbsp;separated&nbsp;by&nbsp;a&nbsp;space&nbsp;and&nbsp;in&nbsp;alphabetic&nbsp;letters&nbsp;only.<br>
+It&nbsp;will&nbsp;then&nbsp;return&nbsp;the&nbsp;name&nbsp;given.<br>
+&nbsp;<br>
+Parameters:<br>
+-------<br>
+name:&nbsp;str<br>
+&nbsp;<br>
+Returns:<br>
+-------<br>
+name:&nbsp;str</tt></dd></dl>
+ <dl><dt><a name="-askbookingInfoPlaces"><strong>askbookingInfoPlaces</strong></a>()</dt><dd><tt>&nbsp;This&nbsp;function&nbsp;asks&nbsp;the&nbsp;user&nbsp;for&nbsp;the&nbsp;number&nbsp;of&nbsp;places&nbsp;required&nbsp;in&nbsp;the&nbsp;room.<br>
+&nbsp;<br>
+&nbsp;Parameters<br>
+&nbsp;----------<br>
+places&nbsp;:&nbsp;int<br>
+&nbsp;<br>
+&nbsp;Returns<br>
+&nbsp;-------<br>
+&nbsp;places&nbsp;:&nbsp;int<br>
+&nbsp;<br>
+&nbsp;Note:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You&nbsp;can&nbsp;only&nbsp;pick&nbsp;dates&nbsp;from&nbsp;01/01/2022,&nbsp;00&nbsp;till&nbsp;12/31/2022,&nbsp;23"</tt></dd></dl>
+ <dl><dt><a name="-askbookingInfoProjector"><strong>askbookingInfoProjector</strong></a>()</dt><dd><tt>This&nbsp;functions&nbsp;asks&nbsp;the&nbsp;user&nbsp;if&nbsp;they&nbsp;need&nbsp;a&nbsp;projector&nbsp;in&nbsp;their&nbsp;room.<br>
+Returns&nbsp;a&nbsp;string,&nbsp;either&nbsp;"True"&nbsp;or&nbsp;"False".<br>
+If&nbsp;the&nbsp;user&nbsp;does&nbsp;not&nbsp;write&nbsp;either&nbsp;"True"&nbsp;or&nbsp;"False",&nbsp;the&nbsp;function&nbsp;will&nbsp;keep&nbsp;asking.<br>
+&nbsp;<br>
+Parameters<br>
+----------<br>
+projector:&nbsp;str<br>
+&nbsp;<br>
+Returns<br>
+-------<br>
+projector:&nbsp;bool<br>
+&nbsp;<br>
+Note:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;function&nbsp;will&nbsp;keep&nbsp;looping&nbsp;until&nbsp;the&nbsp;user&nbsp;inputs&nbsp;"yes"/"y"&nbsp;or&nbsp;"no"/"n".</tt></dd></dl>
+ <dl><dt><a name="-askbookingInfoQuiet"><strong>askbookingInfoQuiet</strong></a>()</dt><dd><tt>The&nbsp;function&nbsp;asks&nbsp;the&nbsp;user&nbsp;whether&nbsp;they&nbsp;need&nbsp;a&nbsp;quiet&nbsp;room.<br>
+&nbsp;<br>
+Parameters:<br>
+-------<br>
+quiet:&nbsp;str<br>
+&nbsp;<br>
+Returns:<br>
+-------<br>
+quiet:&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Note:<br>
+The&nbsp;function&nbsp;will&nbsp;keep&nbsp;looping&nbsp;until&nbsp;the&nbsp;user&nbsp;inputs&nbsp;"yes"/"y"&nbsp;or&nbsp;"no"/"n".</tt></dd></dl>
+ <dl><dt><a name="-askbookingInfoTV"><strong>askbookingInfoTV</strong></a>()</dt><dd><tt>This&nbsp;function&nbsp;asks&nbsp;the&nbsp;user&nbsp;if&nbsp;a&nbsp;TV&nbsp;is&nbsp;needed.<br>
+&nbsp;<br>
+Parameters:<br>
+-------<br>
+tv:&nbsp;str<br>
+&nbsp;<br>
+Returns:<br>
+-------<br>
+tv:&nbsp;bool<br>
+&nbsp;<br>
+Note:<br>
+The&nbsp;function&nbsp;will&nbsp;keep&nbsp;looping&nbsp;until&nbsp;the&nbsp;user&nbsp;inputs&nbsp;"yes"/"y"&nbsp;or&nbsp;"no"/"n".</tt></dd></dl>
+ <dl><dt><a name="-askbookingInfoTime"><strong>askbookingInfoTime</strong></a>()</dt><dd><tt>This&nbsp;function&nbsp;asks&nbsp;the&nbsp;user&nbsp;for&nbsp;the&nbsp;prefered&nbsp;time&nbsp;of&nbsp;booking,&nbsp;following&nbsp;the&nbsp;format:&nbsp;mm/dd/YY,&nbsp;HH<br>
+&nbsp;<br>
+Parameters<br>
+----------<br>
+date_entry&nbsp;:&nbsp;int<br>
+&nbsp;<br>
+Returns<br>
+-------<br>
+date_entry&nbsp;:&nbsp;date&nbsp;str</tt></dd></dl>
+</td></tr></table>
+</body></html>
