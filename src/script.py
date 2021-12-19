@@ -77,6 +77,7 @@ while True:
                             ]
         if len(df_match)==0:
             print("We are sorry, there are no rooms with such criterias, please try again later")
+            time.sleep(2)
             break   
         
         # choose room
@@ -117,6 +118,11 @@ while True:
         df_match = df_bookings[(df_bookings["student_name"] == student.name) &
                                (df_bookings["student_id"] == student.id) &
                                (df_bookings["room_datetime"] >= datetime.datetime.now())] # show only future bookings
+        
+        if len(df_match)==0:
+            print("We are sorry, there are no bookings with such criterias, please try again.")
+            time.sleep(3)
+            continue   
         
         fnd.cancelBooking(df_match)
         
