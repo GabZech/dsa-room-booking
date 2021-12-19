@@ -20,7 +20,7 @@ Our program uses different classes for objects, one being "Student" that prompts
 ### How to Run
 The file script.py in the src folder contains the script necessary to run the application, while functions, and classes are saved in and imported from separate files.
 
-### Possible future imporvements and extensions
+### Possible future improvements and extensions
 Our program is a basic sample of room booking system and addressed the main problems with functionality of current system listed in our proposal. 
 At the same time, in order to fully addapt it to Herite needs, a few further imrovements could be imprlemented in the future.
 - add database with all Hertie ID's so only them can be inputed,
